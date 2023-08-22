@@ -14,6 +14,9 @@ process COLLAPSE_GTF_ANNOTATIONS_ON_GENE_LEVEL {
     tuple val(meta), path("${gencodeAnnotation.baseName}_genes_collapsed_only.gtf"), emit: gene_level_gencode_gtf
     path "versions.yml", emit: versions
     
+    when:
+    task.ext.when == null || task.ext.when
+    
     script:
     
     """

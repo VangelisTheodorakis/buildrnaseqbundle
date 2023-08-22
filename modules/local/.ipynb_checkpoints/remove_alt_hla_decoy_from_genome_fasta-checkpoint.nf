@@ -13,7 +13,10 @@ process REMOVE_ALT_HLA_DECOY_FROM_GENOME_FASTA {
     output:
     tuple val(meta), path("${genomeFasta.baseName}_noALT_noHLA_noDecoy.fasta"), emit: cleaned_genome_without_alt_hla_decoy
     path "versions.yml", emit: versions
-
+    
+    when:
+    task.ext.when == null || task.ext.when
+    
     script:
     """
     
