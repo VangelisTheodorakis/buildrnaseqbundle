@@ -8,7 +8,10 @@ process PATCH_ERCC_SPIKES_FASTA {
     output:
     tuple val(meta), path("patched_${erccFasta.baseName}.fa"), emit: patched_ercc_fasta
     path "versions.yml", emit: versions
-
+    
+    when:
+    task.ext.when == null || task.ext.when
+    
     script:
     """
     sed 's/ERCC-/ERCC_/g' $erccFasta > patched_${erccFasta.baseName}.fa

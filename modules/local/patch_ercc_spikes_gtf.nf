@@ -14,7 +14,10 @@ process PATCH_ERCC_SPIKES_GTF {
     output:
     tuple val(meta), path("patched_${erccGtfFile.baseName}.gtf"), emit: patched_ercc_gtf
     path "versions.yml", emit: versions
-
+    
+    when:
+    task.ext.when == null || task.ext.when
+    
     script:
     """
     
