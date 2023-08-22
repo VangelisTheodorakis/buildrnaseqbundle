@@ -12,27 +12,14 @@
 
 ## Introduction
 
-**nf-core/buildrnaseqbundle** is a bioinformatics pipeline that ...
-
-
-**build-rnaseq-bundle** is a bioinformatics pipeline that can be used to create bundles of input data (genome files, annotations, indexes etc) for RNA sequencing analyses with **nf-core/rnaseq**, using the [guidelines for GTEx v10](https://github.com/broadinstitute/gtex-pipeline/blob/master/TOPMed_RNAseq_pipeline.md). 
-
-|         | Version | 
-| ------- | ------- | 
-| Genome  | GRCh38  | 
-| GENCODE | [v44](https://www.gencodegenes.org/human/release_44.html)|
-| python  | 3.10.2  |
-| samtools| 1.17    |
-| gatk4   | 4.4.0.0 |
-| STAR    | 2.7.10a | 
-| RSEM    | 1.3.3   | 
+**buildrnaseqbundle** is a bioinformatics pipeline that can be used to create bundles of input data (genome files, annotations, indexes etc) for RNA sequencing analyses with **nf-core/rnaseq**, using the [guidelines for GTEx v10](https://github.com/broadinstitute/gtex-pipeline/blob/master/TOPMed_RNAseq_pipeline.md). 
 
 <!-- TODO nf-core: Include a figure that guides the user through the major workflow steps. Many nf-core
      workflows use the "tube map" design for that. See https://nf-co.re/docs/contributing/design_guidelines#examples for examples.   -->
 <!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
 
 1. Get the input fasta and gtf files 
-    1. Prepre the reference genome file ()
+    1. Prepre the reference genome file
         1. Get the GRCh38 reference genome FASTA from Broad Institute ([`GRCh38`](https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta))
         2. Remove the ALT, HLA, and Decoy contigs from the reference genome FASTA 
    2. Prepre the gene annotation file ([`gunzip`](https://www.gnu.org/software/gzip/manual/gzip.html))
@@ -59,13 +46,13 @@ You can run the pipeline using:
 ```bash
 nextflow run nf-core/buildrnaseqbundle \
    -profile <docker/singularity/.../institute> \
-   --gencodeVersion         "44" \
-   --spliceJunctionOverhang 100 \
-   --star_output_zip       <STAR_OUTPUT_ZIP> \
-   --rsem_output_zip       <RSEM_OUTPUT_ZIP> \
-   --executor              <slurm/local>
+   --gencodeVersion           "44" \
+   --spliceJunctionOverhang    100 \
+   --star_output_zip           <STAR_OUTPUT_ZIP> \
+   --rsem_output_zip           <RSEM_OUTPUT_ZIP> \
+   --executor                  <slurm/local>
    --publish_intermediate_data <true/false>
-   --outdir                <OUTDIR>
+   --outdir                    <OUTDIR>
 ```
 
 > **Warning:**
@@ -77,9 +64,31 @@ For more details and further functionality, please refer to the [usage documenta
 
 ## Pipeline output
 
-To see the results of an example test run with a full size dataset refer to the [results](https://nf-co.re/buildrnaseqbundle/results) tab on the nf-core website pipeline page.
-For more details about the output files and reports, please refer to the
-[output documentation](https://nf-co.re/buildrnaseqbundle/output).
+The pipeline creates an output folder with the same output as the GTEx v10 analysis, as well as the input for the rnaseq pipeline input.
+```bash
+
+nf-test-rnaseq-hg38-gencode.v44-bundle/
+├── gencode.v44.annotation_genes_collapsed_only_patched_ERCC92.gtf
+├── Homo_sapiens_assembly38_noALT_noHLA_noDecoy_patched_ERCC92.dict
+├── Homo_sapiens_assembly38_noALT_noHLA_noDecoy_patched_ERCC92.fasta
+├── Homo_sapiens_assembly38_noALT_noHLA_noDecoy_patched_ERCC92.fasta.fai
+├── pipeline_info/
+├── rsem_reference_GRCh38_gencode44_ercc.tar.gz
+├── star_rsem_index/
+└── STARv2710a_genome_GRCh38_noALT_noHLA_noDecoy_ERCC_v44_oh100.tar.gz
+```
+
+## Current versions
+
+|         | Version | 
+| ------- | ------- | 
+| Genome  | GRCh38  | 
+| GENCODE | [v44](https://www.gencodegenes.org/human/release_44.html)|
+| python  | 3.10.2  |
+| samtools| 1.17    |
+| gatk4   | 4.4.0.0 |
+| STAR    | 2.7.10a | 
+| RSEM    | 1.3.3   | 
 
 ## Credits
 
