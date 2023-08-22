@@ -32,9 +32,9 @@
 <!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
 
 1. Get the input fasta and gtf files 
-    1.1 Prepre the reference genome file ([])
-        1.1.1. Get the GRCh38 reference genome FASTA from Broad Institute ([`GRCh38`](https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta))
-        1.1.2. Remove the ALT, HLA, and Decoy contigs from the reference genome FASTA 
+     1.1 Prepre the reference genome file ([])
+         1.1.1. Get the GRCh38 reference genome FASTA from Broad Institute ([`GRCh38`](https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta))
+         1.1.2. Remove the ALT, HLA, and Decoy contigs from the reference genome FASTA 
     1.2. Prepre the gene annotation file ([`gunzip`](https://www.gnu.org/software/gzip/manual/gzip.html))
         1.2.1. Get the Gencode v.XX annotation of choice ([`Gencode`](https://www.gencodegenes.org/human/))
     1.3. Prepare the ERCC92 spike-in data ([`7za`](https://linux.die.net/man/1/7za), [`sed`](https://linux.die.net/man/1/sed))
