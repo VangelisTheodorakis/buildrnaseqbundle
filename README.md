@@ -32,14 +32,14 @@
 <!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
 
 1. Get the input fasta and gtf files 
-..1.1 Prepre the reference genome file ([])
-.....1.1.1. Get the GRCh38 reference genome FASTA from Broad Institute ([`GRCh38`](https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta))
-.....1.1.2. Remove the ALT, HLA, and Decoy contigs from the reference genome FASTA 
-..1.2. Prepre the gene annotation file ([`gunzip`](https://www.gnu.org/software/gzip/manual/gzip.html))
-....1.2.1. Get the Gencode v.XX annotation of choice ([`Gencode`](https://www.gencodegenes.org/human/))
-..1.3. Prepare the ERCC92 spike-in data ([`7za`](https://linux.die.net/man/1/7za), [`sed`](https://linux.die.net/man/1/sed))
-....1.3.1. Get the Thermofisher ERCC spike-in data ([ERCC92 spike-in](https://tools.thermofisher.com/content/sfs/manuals/ERCC92.zip))
-....1.3.2. Patch the ERCC92 fasta file for compatibility with RNA-SeQC/GATK
+    1.1 Prepre the reference genome file ([])
+        1.1.1. Get the GRCh38 reference genome FASTA from Broad Institute ([`GRCh38`](https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta))
+        1.1.2. Remove the ALT, HLA, and Decoy contigs from the reference genome FASTA 
+    1.2. Prepre the gene annotation file ([`gunzip`](https://www.gnu.org/software/gzip/manual/gzip.html))
+        1.2.1. Get the Gencode v.XX annotation of choice ([`Gencode`](https://www.gencodegenes.org/human/))
+    1.3. Prepare the ERCC92 spike-in data ([`7za`](https://linux.die.net/man/1/7za), [`sed`](https://linux.die.net/man/1/sed))
+        1.3.1. Get the Thermofisher ERCC spike-in data ([ERCC92 spike-in](https://tools.thermofisher.com/content/sfs/manuals/ERCC92.zip))
+    1.3.2. Patch the ERCC92 fasta file for compatibility with RNA-SeQC/GATK
 2. Combine the Gencode and ERCC GTF annotation files ([`cat`](https://linux.die.net/man/1/cat))
 3. Create the STAR index ([`STAR`](https://github.com/alexdobin/STAR), [`tar`](https://www.linfo.org/tar.html))
 4. Create the RSEM index ([`RSEM`](https://github.com/deweylab/RSEM), [`tar`](https://www.linfo.org/tar.html))
