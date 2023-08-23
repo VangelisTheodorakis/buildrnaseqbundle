@@ -14,9 +14,7 @@
 
 **buildrnaseqbundle** is a bioinformatics pipeline that can be used to create bundles of input data (genome files, annotations, indexes etc) for RNA sequencing analyses with **nf-core/rnaseq**, using the [guidelines for GTEx v10](https://github.com/broadinstitute/gtex-pipeline/blob/master/TOPMed_RNAseq_pipeline.md). 
 
-<!-- TODO nf-core: Include a figure that guides the user through the major workflow steps. Many nf-core
-     workflows use the "tube map" design for that. See https://nf-co.re/docs/contributing/design_guidelines#examples for examples.   -->
-<!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
+[](buildrnaseqbundle-metro-map.drawio.png)
 
 1. Get the input fasta and gtf files 
     1. Prepre the reference genome file
@@ -41,17 +39,10 @@
 
 You can run the pipeline using:
 
-<!-- TODO nf-core: update the following command to include all required parameters for a minimal example -->
-
 ```bash
 nextflow run nf-core/buildrnaseqbundle \
    -profile <docker/singularity/.../institute> \
-   --gencodeVersion           "44" \
    --spliceJunctionOverhang    100 \
-   --star_output_zip           <STAR_OUTPUT_ZIP> \
-   --rsem_output_zip           <RSEM_OUTPUT_ZIP> \
-   --executor                  <slurm/local>
-   --publish_intermediate_data <true/false>
    --outdir                    <OUTDIR>
 ```
 
