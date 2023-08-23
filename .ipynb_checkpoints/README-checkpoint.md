@@ -14,7 +14,7 @@
 
 **buildrnaseqbundle** is a bioinformatics pipeline that can be used to create bundles of input data (genome files, annotations, indexes etc) for RNA sequencing analyses with **nf-core/rnaseq**, using the [guidelines for GTEx v10](https://github.com/broadinstitute/gtex-pipeline/blob/master/TOPMed_RNAseq_pipeline.md). 
 
-[](buildrnaseqbundle-metro-map.drawio.png)
+![](buildrnaseqbundle-metro-map.drawio.png)
 
 1. Get the input fasta and gtf files 
     1. Prepre the reference genome file
